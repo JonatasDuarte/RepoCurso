@@ -12,7 +12,7 @@ typedef struct{
 }list;
 
 
-list *l createList();
+list *createList();
 
 void add(list *l, int v);
 

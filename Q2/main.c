@@ -2,39 +2,27 @@
 #include <stdio.h>
 #include "lista.h"
 
-int hasElement(list *l, int v){
-    node *n = l->begin;
-    int pos = 0;
-    while(n != NULL){
-        if(n->data == v) return pos;
-        n = n->next;
-        pos++;
-    }
-    return -1;
-}
+int main(){
+    list *l = createList();
+    add(l, 1);
+    add(l, 3);
+    add(l, 5);
 
-int insertPosition(list *l, int v, int pos){
-    int max = size(l), i;
-    if(pos >=0 && pos<max){
-        node *n =(node*)malloc(sizeof(node));
-        n->data = v;
-        node *p = l->begin;
-        node *a = NULL;
-        for(i = 0; i<pos;){
-            a = p;
-            p = p->next;
-        }
-        if(a == NULL){
-            n->next = l->begin;
-            l->begin = n;
-        }else if(p == NULL){
-            n->next = NULL;
-            a->next = n;
-        } else{
-            n->next = p;
-            a->next = n;
-        }
-        return 0;
-    }
-    return -1;
+    printf("Tem o elemento '1'?(Sim: 0 / Não: -1)\n %d\n", hasElement(l, 1));
+    printf("Tem e elemento '2'?(Sim: 0 / Não: -1)\n %d\n", hasElement(l, 2));
+
+    printf("Inseriu o elemento '2'?(Sim: 0 / Não: -1)\n %d\n", insertionPosition(l, 2, 1));
+    printf("Inseriu o elemento '8'?(Sim: 0 / Não: -1)\n %d\n", insertionPosition(l, 8, 8));
+
+    printf("Removeu na posição '0'?(Sim: 0 / Não: -1)\n %d\n", removePosition(l, 0));
+    printf("Removeu na posição '9'?(Sim: 0 / Não: -1)\n %d\n", removePosition(l, 9));
+
+    printf("Removeu o elemento '2'?(Sim: 0 / Não: -1)\n %d\n", removeElement(l, 2));
+    printf("Removeu o elemento '0'?(Sim: 0 / Não: -1)\n %d\n", removeElement(l, 0));
+
+    int getNumber;
+    printf("Get na posição '0'?(Sim: 0 / Não: -1)\n %d\n", get(l, 1, &getNumber));
+    printf("Get na posição '-2'?(Sim: 0 / Não: -1)\n %d\n", get(l, -2, &getNumber));
+
+    return 0;
 }

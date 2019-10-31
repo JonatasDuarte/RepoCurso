@@ -61,27 +61,85 @@ int size(list *l){
   return cont;
 }
 
-int main(void){
-  int v, s, n, i;
-  list *l =  createList();
-  printf("Adicionado os valores:\n");
-  add(l, 1);
-  add(l, 5);
-  add(l, 3);
-  add(l, 5);
+int hasElement(list *l, int v){
+    node *n = l->begin;
+    int pos = 0;
+    while(n != NULL){
+        if(n->data == v) return pos;
+        n = n->next;
+        pos++;
+    }
+    return -1;
+}
 
-  printList(l);
-  printf("Size: %d\n", size(l));
-  printf("%d\n",isEmpty(l));
+int insertPosition(list *l, int v, int pos){
+    int max = size(l), i;
+    if(pos >=0 && pos<max){
+        node *n =(node*)malloc(sizeof(node));
+        n->data = v;
+        node *p = l->begin;
+        node *a = NULL;
+        for(i = 0; i<pos;){
+            a = p;
+            p = p->next;
+        }
+        if(a == NULL){
+            n->next = l->begin;
+            l->begin = n;
+        }else if(p == NULL){
+            n->next = NULL;
+            a->next = n;
+        } else{
+            n->next = p;
+            a->next = n;
+        }
+        return 0;
+    }
+    return -1;
+}
 
+int removePosition(list *l, int pos){
+    int max = size(l), i;
+    if(pos >=0 && pos<max){
+        node *p = l->begin;
+        node *a = NULL;
+        for(i=0; i<pos; i++){
+            a = p;
+            p = p->next;
+        }
+        if(a == NULL) l->begin = NULL;
+        else a->next = p->next;
+        free(p);
+        return 0;
+    }
+    return -1;
+}
 
-  removeBack(l);
-  removeBack(l);
+int removeElement(list *l, int v){
+    int pos = 0;
+    node *p = l->begin;
+    node *a = NULL;
+    while(p != NULL){
+        if(p->data == v){
+            a->next = p->next;
+            free(p);
+            return pos;
+        }
+        p = p->next;
+        pos++;
+    }
+    return -1;
+}
 
-  printf("Após removermos alguns valores nossa lista ficou:\n");
-  printList(l);
-  printf("Size: %d\n", size(l));
-  printf("%d\n",isEmpty(l));
-
-
+int get(list *l, int pos, int *vret){
+    int max = size(l), i;
+    if(pos >=0 && pos<max){
+        node *p = l->begin;
+        for(i = 0; i<pos; i++){
+            p = p->next;
+        }
+        *vret = p->data;
+        return 0;
+    }
+    return -1;
 }
