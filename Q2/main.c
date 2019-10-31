@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "lista.h"
+#include "lista.c"
 
 int main(){
     list *l = createList();
@@ -11,8 +11,8 @@ int main(){
     printf("Tem o elemento '1'?(Sim: 0 / Não: -1)\n %d\n", hasElement(l, 1));
     printf("Tem e elemento '2'?(Sim: 0 / Não: -1)\n %d\n", hasElement(l, 2));
 
-    printf("Inseriu o elemento '2'?(Sim: 0 / Não: -1)\n %d\n", insertionPosition(l, 2, 1));
-    printf("Inseriu o elemento '8'?(Sim: 0 / Não: -1)\n %d\n", insertionPosition(l, 8, 8));
+    printf("Inseriu o elemento '2'?(Sim: 0 / Não: -1)\n %d\n", insertPosition(l, 2, 1));
+    printf("Inseriu o elemento '8'?(Sim: 0 / Não: -1)\n %d\n", insertPosition(l, 8, 8));
 
     printf("Removeu na posição '0'?(Sim: 0 / Não: -1)\n %d\n", removePosition(l, 0));
     printf("Removeu na posição '9'?(Sim: 0 / Não: -1)\n %d\n", removePosition(l, 9));

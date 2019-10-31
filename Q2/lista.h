@@ -26,7 +26,7 @@ int size(list *l);
 
 int hasElement(list *l, int v);
 
-int insertionPosition(list *l, int v, int pos);
+int insertPosition(list *l, int v, int pos);
 
 int removePosition(list *l, int pos);
 
