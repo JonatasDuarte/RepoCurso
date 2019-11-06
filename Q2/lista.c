@@ -79,7 +79,7 @@ int insertPosition(list *l, int v, int pos){
         n->data = v;
         node *p = l->begin;
         node *a = NULL;
-        for(i = 0; i<pos;){
+        for(i = 0; i<pos; i++){
             a = p;
             p = p->next;
         }
@@ -107,7 +107,7 @@ int removePosition(list *l, int pos){
             a = p;
             p = p->next;
         }
-        if(a == NULL) l->begin = NULL;
+        if(a == NULL) l->begin = p->next;
         else a->next = p->next;
         free(p);
         return 0;
@@ -116,19 +116,12 @@ int removePosition(list *l, int pos){
 }
 
 int removeElement(list *l, int v){
-    int pos = 0;
-    node *p = l->begin;
-    node *a = NULL;
-    while(p != NULL){
-        if(p->data == v){
-            a->next = p->next;
-            free(p);
-            return pos;
-        }
-        p = p->next;
-        pos++;
+    int pos = hasElement(l, v);
+    if(pos <0) return -1;
+    else{
+        removePosition(l, pos);
+        return pos;
     }
-    return -1;
 }
 
 int get(list *l, int pos, int *vret){
