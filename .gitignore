@@ -4,3 +4,4 @@
 !*.h
 !*.txt
 !*.gitignore
+!*.ipynb
