@@ -5,7 +5,7 @@
 list *createList(){
     list *l = (list*)malloc(sizeof(list));
     l->begin = NULL;
-    l->end = NULL;
+    l->end = l->begin;
     return l;
 }
 
@@ -13,14 +13,9 @@ void insereInicio(list *l, int v){
     node *n = (node*)malloc(sizeof(node));
     n->data = v;
     n->next = l->begin;
-    n->bef = l->end;
-    if(l->begin == NULL){
-        l->begin = n;
-        l->end = n;
-    }  else{
-        l->begin->bef = n;
-        l->begin = n;
-    }
+    n->bef = NULL;
+    l->begin = n;
+    if(l->end == NULL) l->end = n;
 }
 
 void insereFim(list *l, int v){
@@ -28,12 +23,9 @@ void insereFim(list *l, int v){
     n->data = v;
     n->next = NULL;
     n->bef = l->end;
-    if(l->begin == NULL){
-        l->begin = l->end = n;
-    } else{
-        l->end->next = n;
-        l->end = n;
-    }
+    l->end->next = n;
+    l->end = n;
+
 }
 
 node *busca(list *l, int v){
@@ -77,5 +69,19 @@ void printCircular(list *l){
 }
 
 void insertCircular(list *l, int v){
+    node *n = (node*)malloc(sizeof(node));
+    n->data = v;
+     if(l->begin == NULL){
+        l->begin = l->end = n;
+        n->bef = n->next = n;
+    } else{
+        n->next = l->begin;
+        n->bef = l->end;
+        n->bef->next = n;
+        l->end = n;
+    }
+}
 
+void removeElementCircular(list *l, int v){
+    
 }
