@@ -35,3 +35,47 @@ void insereFim(list *l, int v){
         l->end = n;
     }
 }
+
+node *busca(list *l, int v){
+    node *p = l->begin;
+    while(p != NULL){
+        if(p->data == v) return p;
+        p= p->next;
+    }
+}
+
+void removeValor(list *l, int v){
+    node *p = busca(l, v);
+    if(p != NULL){
+        if(l->begin == l->end){
+            l->begin = l->end = NULL;
+        }
+        else if(p == l->begin){
+            l->begin = p->next;
+            l->begin->bef = NULL;
+        }
+    }
+}
+
+void becomeCircular(list *l){
+    if(l->begin != l->end){
+        l->begin->bef = l->end;
+        l->end->next = l->begin;
+    }
+}
+
+void printCircular(list *l){
+    if(l->begin != NULL){
+        node *p = l->begin;
+        printf("[ ");
+        do{
+            printf("%d ", p->data);
+            p= p->next;
+        }while(p != l->begin);
+        printf("]\n");
+    }
+}
+
+void insertCircular(list *l, int v){
+
+}

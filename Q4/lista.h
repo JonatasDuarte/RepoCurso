@@ -21,4 +21,12 @@ node *busca(list *l, int v);
 
 void insereFim(list *l, int v);
 
-node *removeValor(list *l, int v);
+void removeValor(list *l, int v);
+
+void becomeCircular(list *l);
+
+void printCircular(list *l);
+
+void insertCircular(list *l, int v);
+
+void removeElementCircular(list *l, int v);
