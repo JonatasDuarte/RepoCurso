@@ -29,4 +29,6 @@ void printCircular(list *l);
 
 void insertCircular(list *l, int v);
 
+int hasElement(list *l, int v);
+
 void removeElementCircular(list *l, int v);

@@ -34,6 +34,7 @@ node *busca(list *l, int v){
         if(p->data == v) return p;
         p= p->next;
     }
+
 }
 
 void removeValor(list *l, int v){
@@ -50,22 +51,22 @@ void removeValor(list *l, int v){
 }
 
 void becomeCircular(list *l){
-    if(l->begin != l->end){
+    if(l->begin != NULL){
         l->begin->bef = l->end;
         l->end->next = l->begin;
     }
 }
 
-void printCircular(list *l){
-    if(l->begin != NULL){
-        node *p = l->begin;
-        printf("[ ");
-        do{
-            printf("%d ", p->data);
-            p= p->next;
-        }while(p != l->begin);
-        printf("]\n");
+void printCircular(list *l)
+{
+    printf("[ ");
+    node *p = l->begin;
+    while (p != NULL)
+    {
+        printf("%d ", p->data);
+        p = p->next;
     }
+    printf("]\n");
 }
 
 void insertCircular(list *l, int v){
@@ -82,6 +83,37 @@ void insertCircular(list *l, int v){
     }
 }
 
+int hasElement(list *l, int v){
+    node *n = l->begin;
+    int pos = 0;
+    while(n != NULL){
+        if(n->data == v) return pos;
+        n = n->next;
+        pos++;
+    }
+    return -1;
+}
+
 void removeElementCircular(list *l, int v){
-    
+    int pos = hasElement(l, v), i;
+    if(pos >= 0)
+    {
+        node *p = l->begin;
+        for(i = 0; i < pos; i++)
+            p = p->next;
+
+        if(l->begin == p){
+            l->begin = p->next;
+            l->begin->bef = NULL;
+        }
+        else if(l->end == p){
+            l->end = p->bef;
+            l->end->next = NULL;
+        }
+        else{
+            p->next->bef = p->bef;
+            p->bef->next = p->next;
+        }
+        free(p);
+    }
 }
