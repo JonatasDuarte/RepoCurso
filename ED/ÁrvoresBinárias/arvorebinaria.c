@@ -60,12 +60,17 @@ no *removeValue(no *remo, int v){
     else{
         if(remo->esq == NULL && remo->dir == NULL){
             free(remo);
-            return NULL;
+            remo = NULL;
 
-        }else if(remo->esq == NULL && remo->dir != NULL){
-            no*a = remo->dir;
-            free(remo);
-            return a;
+        }else if(remo->dir == NULL){
+            no*a = remo;
+            remo = a->esq;
+            free(a);
+        }
+        else if(remo->esq == NULL){
+            no*a = remo;
+            remo = a->dir;
+            free(a);
 
         } else {
             no *a= remo->esq;
@@ -87,15 +92,14 @@ int size(no *raiz){
 }
 
 int sumX(no *raiz, int x){
-    if(raiz != NULL){
-        if(x < raiz->v){
-            int left = sumX(raiz->esq,x);
-            int right = sumX(raiz->dir,x);
+    if(raiz == NULL) return 0;
+    else{
+        int left = sumX(raiz->esq,x);
+        int right = sumX(raiz->dir,x);
+        if(x < raiz->v)
             return (raiz->v + right+left); 
-        } else{
-            int left = sumX(raiz->esq,x);
-            int right = sumX(raiz->dir,x);
+         else
             return (right+left);
-        }
+        
     }
 }
