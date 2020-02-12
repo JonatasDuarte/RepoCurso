@@ -1,0 +1,44 @@
+1°No bloco de notas, crie os arquvios .java
+2°Adicione-os em uma pasta
+3°Crie as pastas: bin, dist, src
+4°Pega os endereços
+5°No endereço, use o comando: javac nome.java
+6°No endereço, use o comando: java nome
+7°No endereço, use o comando: src\*.java -d bin
+8°No endereço jar, use o comando: jar --create -- file dist\myapp.jar --main-class=nome -C bin\
+9°No endereço jar: -jar dist\myapp.jar
+10°Após o package, no srccria as pastas no caso br, dentro dele edu e por fim ifpb com os .java
+11°No endereço, javac usa src/br/edu/ifpb/*.java -d bin
+ -- Para não ter colisão de postos com nomes iguais usa-se package.
+
+ ------
+
+ Anotações de comandos úteis:
+
+cd .. (volta) // cd X (entra)
+dir (lista os diretorios)
+copy con Name
+md Name
+
+
+Comandos Java:
+
+java NomeArq.java  (Executa arquivo .java)
+
+javac -d bin ARQ.java (Cria o nosso .class e adiciona na pasta 'bin') // (-d indicação do destino de onde o .class será gerado)
+
+jar cvfe Nome.jar NameClass NameClass.class (criar o .jar dentro do mesmo diretorio e usando as classes no mesmo diretorio)
+
+mvn archetype:generate 
+-DgroupId=br.edu.ifpb -DartifactId='teste' 
+-DarchetypeArtifactId=maven-archetype-quickstart 
+-DarchetypeVersion=1.4 -DinteractiveMode=false
+
+" <configuration>
+       <archive>
+          <manifest>
+             <mainClass>'br.edu.ifpb.App'</mainClass>
+          </manifest>
+      </archive>
+  </configuration> "
+ 
