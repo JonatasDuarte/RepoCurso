@@ -9,7 +9,8 @@
 9°No endereço jar: -jar dist\myapp.jar
 10°Após o package, no srccria as pastas no caso br, dentro dele edu e por fim ifpb com os .java
 11°No endereço, javac usa src/br/edu/ifpb/*.java -d bin
- -- Para não ter colisão de postos com nomes iguais usa-se package.
+
+---- Para não ter colisão de postos com nomes iguais usa-se package.
 
  ------
 
