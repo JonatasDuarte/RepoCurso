@@ -47,6 +47,8 @@ mvn archetype:generate
 
  remover <properties> do pom criado e colocar:
 
+ --Adicionar: 
+
 <name>Nome do projeto</name>
     <url>http://www.minhaempresa.com/site</url>
     <description>A very important project here</description>
@@ -61,12 +63,12 @@ mvn archetype:generate
     </properties>
 
 
-remover: <plugin>
+ Remover: <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.2</version>
         </plugin>
 
-adicionar:
+ -- Adicionar:
 
 	<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
