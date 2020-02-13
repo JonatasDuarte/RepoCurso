@@ -83,3 +83,6 @@ mvn archetype:generate
                     </archive>
                 </configuration>
          </plugin>
+
+
+Encapsular os dados para: evitar acesso indevido dos ses dados && deixar os dados de forma inconsistente
