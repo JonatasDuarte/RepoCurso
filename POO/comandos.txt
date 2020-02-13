@@ -43,3 +43,41 @@ mvn archetype:generate
       </archive>
   </configuration> "
  
+ =----------------- ALTERANDO NOSSO .pom NO MAVEN ---------------
+
+ remover <properties> do pom criado e colocar:
+
+<name>Nome do projeto</name>
+    <url>http://www.minhaempresa.com/site</url>
+    <description>A very important project here</description>
+    <packaging>jar</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>'11'</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+    </properties>
+
+
+remover: <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+
+adicionar:
+
+	<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>br.edu.ifpb.App</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+         </plugin>
