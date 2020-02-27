@@ -9,19 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>GUI</artifactId>
+    <artifactId>Catalog</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>br.edu.ifpb</groupId>
-            <artifactId>Catalog</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <dependency>
             <groupId>br.edu.ifpb</groupId>
             <artifactId>Books</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
 
 </project>

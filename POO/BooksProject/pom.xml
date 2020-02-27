@@ -3,8 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-
-
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>BooksProject</artifactId>
@@ -14,16 +12,17 @@
   <modules>
     <module>GUI</module>
     <module>Books</module>
+    <module>Catalog</module>
   </modules>
 
-  <name>Principal module</name>
-  <description>this is the father module</description>
+  <name>BooksProject</name>
+  <description>Just kidding</description>
   <packaging>pom</packaging>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>12</java.version>
+    <java.version>11</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
   </properties>

@@ -13,6 +13,7 @@ public class Book {
     }
 
     public Book(int id, String tittle, double price) {
+
         this.setId(id);
         this.setTittle(tittle);
         this.setPrice(price);
@@ -23,7 +24,7 @@ public class Book {
     }
 
     public void setId(int id) {
-        if(id > 0)
+        if(id >= 0)
             this.id = id;
     }
 
@@ -32,6 +33,7 @@ public class Book {
     }
 
     public void setTittle(String tittle) {
+
         this.tittle = tittle;
     }
 
@@ -40,12 +42,16 @@ public class Book {
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        if(price>=0)
+            this.price = price;
     }
 
     @Override
     public String toString(){
-        return "id= "+id+
-                " tittle= "+ tittle;
+        return "Book{" +
+                "id=" + id +
+                ", tittle= "+ tittle +
+                ", price:" + price +
+                 "}";
     }
 }
