@@ -25,12 +25,12 @@ public class Interface {
 
         //Creating book with input
         Book withInput = new Book();
-        System.out.println("Enter the ID: ");
+        System.out.print("Enter the ID: ");
         withInput.setId(inputInt.nextInt());
-        System.out.println("Enter the Tittle: ");
+        System.out.print("Enter the Tittle: ");
         withInput.setTittle(inputStr.nextLine());
-        System.out.println("Enter the Price: ");
-        withInput.setPrice(inputDouble.nextDouble());
+        System.out.print("Enter the Price: ");
+        withInput.setPrice(Double.parseDouble(inputDouble.nextLine()));
 
         //Putting books on catalog
         catalog.addBook(withoutConstructor);
@@ -50,6 +50,7 @@ public class Interface {
 
         //Showing the catalog
         System.out.println(catalog);
+        catalog.ShowBooks();
 
 
 

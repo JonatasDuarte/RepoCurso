@@ -47,8 +47,8 @@ public class Catalog {
 
     @Override
     public String toString() {
-        return "Catalog{ " +
-                "BooksList=" + BooksList +
+        return "Catalog { " +
+                "BooksList =" + BooksList +
                 " }";
     }
 }

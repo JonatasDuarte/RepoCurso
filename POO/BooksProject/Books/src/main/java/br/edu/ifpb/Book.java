@@ -42,13 +42,13 @@ public class Book {
     }
 
     public void setPrice(double price) {
-        if(price>=0)
+        if(price >= 0)
             this.price = price;
     }
 
     @Override
     public String toString(){
-        return "Book{" +
+        return "Book {" +
                 "id=" + id +
                 ", tittle= "+ tittle +
                 ", price:" + price +
