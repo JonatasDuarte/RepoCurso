@@ -30,10 +30,8 @@ javac -d bin ARQ.java (Cria o nosso .class e adiciona na pasta 'bin') // (-d ind
 
 jar cvfe Nome.jar NameClass NameClass.class (criar o .jar dentro do mesmo diretorio e usando as classes no mesmo diretorio)
 
-mvn archetype:generate 
--DgroupId=br.edu.ifpb -DartifactId='teste' 
--DarchetypeArtifactId=maven-archetype-quickstart 
--DarchetypeVersion=1.4 -DinteractiveMode=false
+----
+mvn archetype:generate -DgroupId=br.edu.ifpb -DartifactId='teste' -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 
 " <configuration>
        <archive>
