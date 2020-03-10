@@ -48,5 +48,9 @@ public class Menu {
         System.out.println(university.toString());
     }
 
+    public void thanks(){
+        System.out.println("Thank you for use the App !");
+    }
+
 
 }
