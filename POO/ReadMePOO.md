@@ -21,8 +21,7 @@
 
 ---
 - *Gerando arquivo maven via terminal* 
-   
-mvn archetype:generate -DgroupId=br.edu.ifpb -DartifactId='teste' -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false  
+   mvn archetype:generate -DgroupId=br.edu.ifpb -DartifactId='teste' -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false  
 ---  
 - *Alterando nosso **.pom** no Maven:*  
 ```XML  
