@@ -1,6 +1,6 @@
 # My README for OOP discipline
 
-- Just some instructions on Terminal/Prompt:  
+- *Just some instructions on Terminal/Prompt:*  
 1. No bloco de notas, crie os arquvios .java  
 2. Adicione-os em uma pasta  
 3. Crie as pastas: bin, dist, src  
@@ -12,3 +12,11 @@
 9. No endereço jar: -jar dist\myapp.jar  
 10. Após o package, no srccria as pastas no caso br, dentro dele edu e por fim ifpb com os .java  
 11. No endereço, javac usa src/br/edu/ifpb/*.java -d bin  
+
+---  
+- *Comandos Java:*  
+* java NomeArq.java  (Executa arquivo .java)  
+* javac -d bin ARQ.java (Cria o nosso .class e adiciona na pasta 'bin') // (-d indicação do destino de onde o .class será gerado)  
+* jar cvfe Nome.jar NameClass NameClass.class (criar o .jar dentro do mesmo diretorio e usando as classes no mesmo diretorio)  
+
+---
