@@ -20,3 +20,17 @@
 * jar cvfe Nome.jar NameClass NameClass.class (criar o .jar dentro do mesmo diretorio e usando as classes no mesmo diretorio)  
 
 ---
+- *Gerando arquivo maven via terminal*  
+mvn archetype:generate -DgroupId=br.edu.ifpb -DartifactId='teste' -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false  
+---  
+- *Alterando nosso **.pom** no Maven:  
+```XML  
+<configuration>
+       <archive>
+          <manifest>
+             <mainClass>'br.edu.ifpb.App'</mainClass>
+          </manifest>
+      </archive>
+  </configuration>  
+  ```
+
