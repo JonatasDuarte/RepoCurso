@@ -10,6 +10,8 @@
 10°Após o package, no srccria as pastas no caso br, dentro dele edu e por fim ifpb com os .java
 11°No endereço, javac usa src/br/edu/ifpb/*.java -d bin
 
+apenas testando
+
 ---- Para não ter colisão de postos com nomes iguais usa-se package.
 
  ------
