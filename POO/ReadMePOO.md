@@ -20,7 +20,7 @@
 * jar cvfe Nome.jar NameClass NameClass.class (criar o .jar dentro do mesmo diretorio e usando as classes no mesmo diretorio)  
 
 ---
-- *Gerando arquivo maven via terminal* 
+- *Gerando arquivo maven via terminal:*   
    mvn archetype:generate -DgroupId=br.edu.ifpb -DartifactId='teste' -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false  
 ---  
 - *Alterando nosso **.pom** no Maven:*  
@@ -73,5 +73,32 @@
                     </archive>
                 </configuration>
          </plugin>
+```
+---  
+- *Shade no mult modulo:*  
+```XML
+<plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+            <version>3.2.2</version>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>shade</goal>
+                    </goals>
+                    <configuration>
+                        <transformers>
+                            <transformer
+                                    implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <mainClass>br.ifpb.edu.gui.Menu</mainClass>
+                            </transformer>
+                        </transformers>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
 ```
 
