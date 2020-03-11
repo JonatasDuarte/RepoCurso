@@ -20,10 +20,11 @@
 * jar cvfe Nome.jar NameClass NameClass.class (criar o .jar dentro do mesmo diretorio e usando as classes no mesmo diretorio)  
 
 ---
-- *Gerando arquivo maven via terminal*  
+- *Gerando arquivo maven via terminal* 
+   
 mvn archetype:generate -DgroupId=br.edu.ifpb -DartifactId='teste' -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false  
 ---  
-- *Alterando nosso **.pom** no Maven:  
+- *Alterando nosso **.pom** no Maven:*  
 ```XML  
 <configuration>
        <archive>
@@ -32,5 +33,46 @@ mvn archetype:generate -DgroupId=br.edu.ifpb -DartifactId='teste' -DarchetypeArt
           </manifest>
       </archive>
   </configuration>  
-  ```
+  ```  
+
+  - *Remover **<properties>** do pom criado e colocar:*  
+
+```XML
+<name>Nome do projeto</name>
+    <url>http://www.minhaempresa.com/site</url>
+    <description>A very important project here</description>
+    <packaging>jar</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>'11'</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+    </properties>
+```
+
+- *Remover:*  
+```XML
+    <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.0.2</version>
+    </plugin>
+``` 
+- *Adicionar:*
+```XML
+	    <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>br.edu.ifpb.App</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+         </plugin>
+```
 
