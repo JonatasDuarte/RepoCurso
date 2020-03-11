@@ -107,8 +107,10 @@
 (Uma seta vinda dos filhos e conectadas com o pai)  
 * Agregação: É uma forma especializada de associação na qual um todo é relacionado com suas partes.  
 (Uma linha com um diamante junto à classe agregadora)  
+
 * Composição: É uma agregação onde uma classe que está contida na outra "vive" e constitui a outra. Se o objeto da classe que contém for destruído, as classes da agregação de composição serão destruídas juntamente.  
 (A linha com o diamante totalmente pintado)  
+
 * Dependência: indica a ocorrência de um relacionamento semântico entre dois ou mais elementos do modelo.  
 (Uma seta pontilhada)  
 ---  
