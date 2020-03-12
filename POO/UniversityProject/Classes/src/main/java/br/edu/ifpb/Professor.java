@@ -8,7 +8,8 @@ public class Professor extends Employee{
         this.setNumHours(8);
     }
 
-    public Professor(int id, int age, String address, String name, double baseSalary, int numHours) {
+
+    public Professor(int id, int age, String address, String name, double baseSalary, int hours) {
         super(id,age, address, name, baseSalary);
         this.numHours = numHours;
     }

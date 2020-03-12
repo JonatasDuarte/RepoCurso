@@ -8,7 +8,7 @@ public class Manager extends Employee {
         this.setCommission(500);
     }
 
-    public Manager(int id, int age, String address, String name, double baseSalary) {
+    public Manager(int id, int age, String address, String name, double baseSalary, double commission) {
         super(id,age,address,name, baseSalary);
         this.commission = getCommission();
     }
