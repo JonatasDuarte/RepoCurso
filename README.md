@@ -5,4 +5,4 @@
 ## Listas e Atividades
 * Arquivos gerais de atividades, listas e etc, das matérias do curso. 
 
-### Períodos: 2/10
+### Períodos pagos: 2/10
