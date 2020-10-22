@@ -1,5 +1,9 @@
 package br.edu.ifpb;
 
+import Exceptions.InsufficientBalanceException;
+import Exceptions.InvalidInputException;
+import Exceptions.NegativeDepositException;
+
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -43,24 +47,30 @@ public class Account {
         return balance;
     }
 
-    public boolean deposit(double money){
+    public boolean deposit(double money) throws InvalidInputException, NegativeDepositException{
         if(money > 0){
             //Adding our deposit to historic
             statement.add("D--"+String.valueOf(money));
             balance += money;
             return true;
         }
-        return false;
+        else if (money < 0) throw new NegativeDepositException();
+        else throw new InvalidInputException();
     }
 
-    public boolean withdraw(double money){
+    public boolean withdraw(double money) throws InvalidInputException, NegativeDepositException, InsufficientBalanceException {
         if(money <= balance && money > 0){
             //Adding our withdraw to historic
             statement.add("W--"+String.valueOf(money));
             balance  -= money;
             return true;
+        }else{
+            if(money < 0) throw new NegativeDepositException();
+
+            else if(money > balance) throw new InsufficientBalanceException();
+
+            else throw new InvalidInputException();
         }
-        return false;
     }
 
     public ArrayList<String> getStatement() {

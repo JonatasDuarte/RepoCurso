@@ -1,10 +1,14 @@
 package br.edu.ifpb;
 
+import Exceptions.InsufficientBalanceException;
+import Exceptions.InvalidInputException;
+import Exceptions.NegativeDepositException;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NegativeDepositException, InvalidInputException, InsufficientBalanceException {
         Scanner input = new Scanner(System.in);
         MenuBank menu = new MenuBank();
         int op = 0;
@@ -19,12 +23,18 @@ public class App {
                 System.out.println("Thanks for using 'Checking Account'!");
             else if (op == 1){
                 System.out.print("Enter how much you want: ");
-                boolean tru = account.withdraw(inputDouble.nextDouble());
-                if(tru == false) System.out.println("Invalid, try again.");
-            } else if(op == 2){
+                try {
+                    boolean tru = account.withdraw(inputDouble.nextDouble());
+                }catch (Exception e) {
+                    System.out.print(e);
+                }
+            } else if(op == 2) {
                 System.out.print("Enter how much you want: ");
-                boolean tru = account.deposit(inputDouble.nextDouble());
-                if(tru == false) System.out.println("Invalid, try again.");
+                try {
+                    boolean tru = account.deposit(inputDouble.nextDouble());
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else if (op == 3)
                 System.out.println(account.getBalance());
             else if (op == 4)
