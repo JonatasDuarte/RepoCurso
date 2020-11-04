@@ -6,7 +6,7 @@ public class MenuBank {
 
     public void showMenu(){
         Scanner input = new Scanner(System.in);
-        System.out.println("------- Checking Account -------");
+        System.out.println("\n------- Checking Account -------");
         System.out.println("Enter '1' to Withdraw");
         System.out.println("Enter '2' to Deposit");
         System.out.println("Enter '3' to Show Balance");
