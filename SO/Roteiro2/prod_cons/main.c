@@ -29,14 +29,13 @@ void *producer(void *ptr) {
         printf("Colocando o item %d no buffer (+)\n", i);
 		// Incrementando nosso buffer
         buffer++; /*coloca item no buffer */
-		pthread_mutex_unlock(&the_mutex);/* libera acesso ao buffer */
-		
-		// Vamos acordar o connsumidor após produzir todos os itens no buffer
-		if(buffer == 5){
-			pthread_cond_signal(&condc); /* acorda consumidor */
-        }
-		
-		delay(MAXDELAY);
+	pthread_mutex_unlock(&the_mutex);/* libera acesso ao buffer */
+
+	// Vamos acordar o connsumidor após produzir todos os itens no buffer
+	if(buffer == 5)
+		pthread_cond_signal(&condc); /* acorda consumidor */
+        
+	delay(MAXDELAY);
     }
 
     pthread_exit(0);
