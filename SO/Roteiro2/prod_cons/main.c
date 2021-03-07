@@ -29,13 +29,14 @@ void *producer(void *ptr) {
         printf("Colocando o item %d no buffer (+)\n", i);
 		// Incrementando nosso buffer
         buffer++; /*coloca item no buffer */
-	pthread_mutex_unlock(&the_mutex);/* libera acesso ao buffer */
-
-	// Vamos acordar o connsumidor após produzir todos os itens no buffer
-	if(buffer == 5)
-		pthread_cond_signal(&condc); /* acorda consumidor */
-        
-	delay(MAXDELAY);
+		pthread_mutex_unlock(&the_mutex);/* libera acesso ao buffer */
+		
+		// Vamos acordar o connsumidor após produzir todos os itens no buffer
+		if(buffer == 5){
+			pthread_cond_signal(&condc); /* acorda consumidor */
+        }
+		
+		delay(MAXDELAY);
     }
 
     pthread_exit(0);
@@ -49,7 +50,7 @@ void *consumer(void *ptr) {
     for (i = 1; i <= MAX; i++) {
         pthread_mutex_lock(&the_mutex); /* obtem acesso exclusivo ao buffer */
         while (buffer < 5) 
-		// Chamar o produtor assim que consumir um item
+		// Chamar o produtor quando consumir um item
 			pthread_cond_wait(&condc, &the_mutex);
 			
         printf("Retirando item %d no buffer (-)\n", i);
@@ -72,8 +73,12 @@ int main(int argc, char **argv)
     pthread_mutex_init(&the_mutex, 0);
     pthread_cond_init(&condc, 0);
     pthread_cond_init(&condp, 0);
-    pthread_create(&con, 0, consumer, 0);
-    pthread_create(&pro, 0, producer, 0);
+    
+    // Trocando as posições para ver se alterava o resultado
+	pthread_create(&pro, 0, producer, 0);
+	pthread_create(&con, 0, consumer, 0);
+	
+	
     pthread_join(pro, 0);
     pthread_join(con, 0);
     pthread_cond_destroy(&condc);
