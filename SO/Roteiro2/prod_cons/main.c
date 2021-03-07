@@ -21,17 +21,17 @@ void *producer(void *ptr) {
     /* buffer usado entre produtor e consumidor */
     /* dados do produtor */
     for (i = 1; i <= MAX; i++) {
-		//Produção 
+		/* Produção */ 
         pthread_mutex_lock(&the_mutex); /* obtem acesso exclusivo ao buffer */
         while (buffer == 5)
             pthread_cond_wait(&condp, &the_mutex);
 			
         printf("Colocando o item %d no buffer (+)\n", i);
-		// Incrementando nosso buffer
+		/* Incrementando nosso buffer */
         buffer++; /*coloca item no buffer */
 		pthread_mutex_unlock(&the_mutex);/* libera acesso ao buffer */
 		
-		// Vamos acordar o connsumidor após produzir todos os itens no buffer
+		/* Vamos acordar o connsumidor após produzir todos os itens no buffer */
 		if(buffer == 5){
 			pthread_cond_signal(&condc); /* acorda consumidor */
         }
@@ -50,11 +50,11 @@ void *consumer(void *ptr) {
     for (i = 1; i <= MAX; i++) {
         pthread_mutex_lock(&the_mutex); /* obtem acesso exclusivo ao buffer */
         while (buffer < 5) 
-		// Chamar o produtor quando consumir um item
+		/* Chamar o produtor quando consumir um item */
 			pthread_cond_wait(&condc, &the_mutex);
 			
         printf("Retirando item %d no buffer (-)\n", i);
-		// Decrementando item no buffer
+		/* Decrementando item no buffer */
 		buffer--; /* retira o item do buffer */
 		
         /* acorda o produtor */
@@ -74,7 +74,7 @@ int main(int argc, char **argv)
     pthread_cond_init(&condc, 0);
     pthread_cond_init(&condp, 0);
     
-    // Trocando as posições para ver se alterava o resultado
+    /* Trocando as posições para ver se alterava o resultado */
 	pthread_create(&pro, 0, producer, 0);
 	pthread_create(&con, 0, consumer, 0);
 	
